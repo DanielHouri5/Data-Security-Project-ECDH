@@ -113,10 +113,6 @@ socket.addEventListener('message', (event) => {
   const data = JSON.parse(event.data);
 
   switch (data.type) {
-    case 'userList':
-      updateUserList(data.users); // Not used currently
-      break;
-
     case 'userDirectory':
       userPublicKeys = {};
       userSelect.innerHTML =

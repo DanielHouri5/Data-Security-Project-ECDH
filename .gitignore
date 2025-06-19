@@ -40,5 +40,5 @@ logs/
 # Coverage reports (if you ever add tests with coverage)
 coverage/
 
-# Public folder caches (if any)
+# Public folder caches
 public/.cache/
