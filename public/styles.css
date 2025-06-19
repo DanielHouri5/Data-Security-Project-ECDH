@@ -1,0 +1,245 @@
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body layout and font styling */
+body {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background: linear-gradient(to bottom right, #e3f2fd, #ffffff);
+  color: #333;
+  padding: 40px 20px;
+  text-align: center;
+  min-height: 100vh;
+}
+
+/* Headings styling */
+h2 {
+  margin-bottom: 20px;
+  font-size: 32px;
+  color: #2c3e50;
+}
+
+/* Button appearance and hover effect */
+button {
+  margin: 10px;
+  padding: 12px 24px;
+  background-color: #1e88e5;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #1565c0;
+  transform: translateY(-2px);
+}
+
+/* Layout for login and chat sections */
+#login-section,
+#chat-section {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Common styling for text inputs, textareas, and dropdowns */
+input[type='text'],
+textarea,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* Styling for default unselected dropdown option */
+select:invalid {
+  color: gray;
+}
+
+/* User list container */
+#users-container {
+  text-align: left;
+  margin-top: 20px;
+}
+
+/* Styling for list of users */
+#users {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+#users li {
+  background-color: #e3f2fd;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+/* Flex layout for main test + chat sections */
+#main-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Test section styling */
+#test-section {
+  flex: 1;
+  max-width: 700px;
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Button row inside test section */
+#test-section .button-row {
+  display: flex;
+  flex-direction: row;
+  background-color: #eef6fb; /* light background for grouping buttons */
+  gap: 4px;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+/* Individual test buttons */
+#test-section button {
+  flex: 1 1 80px; /* Flexible with minimum width */
+  padding: 6px 12px;
+  font-size: 12px;
+  margin: 0;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  background-color: #1e88e5;
+  color: white;
+  transition: background-color 0.3s ease;
+  white-space: nowrap; /* Prevent wrapping */
+  text-align: center;
+}
+
+#test-section button:hover {
+  background-color: #1565c0;
+}
+
+/* Output log style for displaying test results */
+#test-section pre#output {
+  text-align: left;
+  background: #f0f0f0;
+  border-radius: 12px;
+  padding: 15px;
+  height: 518px;
+  overflow-y: auto;
+  font-family: monospace;
+  font-size: 13px;
+  white-space: pre-wrap;
+  margin-top: 10px;
+}
+
+/* Chat section appearance */
+#chat-section {
+  flex: 1;
+  max-width: 700px;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Chat message box styling */
+.chat-box {
+  background: #f9f9f9;
+  padding: 15px;
+  margin-top: 20px;
+  height: 200px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+
+/* Individual message bubble */
+.message {
+  padding: 10px 14px;
+  border-radius: 16px;
+  max-width: 80%;
+  word-wrap: break-word;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* Incoming messages on the left */
+.incoming {
+  background-color: #e0f7fa;
+  align-self: flex-start;
+}
+
+/* Outgoing messages on the right */
+.outgoing {
+  background-color: #c8e6c9;
+  align-self: flex-end;
+  text-align: right;
+}
+
+/* Display for current user's name */
+#current-user {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2c3e50;
+  padding: 12px 24px;
+  margin: 20px auto;
+  width: fit-content;
+  text-align: center;
+}
+
+/* Public key display below username */
+#public-key-display {
+  font-size: 12px;
+  color: #888;
+  text-align: left;
+  margin-left: 30px;
+  word-wrap: break-word;
+  white-space: normal;
+  max-width: 90%;
+  font-family: monospace;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 600px) {
+  .chat-box {
+    width: 100%;
+    height: 300px;
+  }
+
+  button {
+    width: 100%;
+  }
+}

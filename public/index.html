@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ECDH Network Chat</title>
+    <!-- Link to external CSS stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Main Title -->
+    <h2>🔐 ECDH Encrypted Chat</h2>
+
+    <!-- Login Section: User enters a username and joins the chat -->
+    <div id="login-section">
+      <input type="text" id="username" placeholder="Enter your name..." />
+      <button onclick="login()">Enter Chat</button>
+    </div>
+
+    <!-- Main container is shown after login; it includes tests and chat -->
+    <div id="main-container" style="display: none">
+      <!-- Left Side: ECDH and Encryption Test Suite -->
+      <div>
+        <h2>🧪 Test Suite</h2>
+        <section id="test-section">
+          <div class="button-row">
+            <!-- Buttons for running various tests -->
+            <button onclick="runTests()">🧪 Run ECDH Tests</button>
+            <button onclick="runTestVector()">🔬 Run Test Vector</button>
+            <button onclick="runPerformanceTest()">
+              ⚡️ Run Performance Test
+            </button>
+            <button onclick="runIntegrationTest()">
+              🔗 Run Integration Test
+            </button>
+          </div>
+          <!-- Area for showing test output logs -->
+          <pre id="output"></pre>
+        </section>
+      </div>
+
+      <!-- Center: Secure Chat Interface using ECDH -->
+      <div>
+        <h2>🔐 Secured Chat</h2>
+        <section
+          id="chat-section"
+          style="display: flex; flex-direction: column"
+        >
+          <!-- Current user's name -->
+          <h2 id="current-user"></h2>
+
+          <!-- User's public key -->
+          <p id="public-key-display"></p>
+
+          <!-- Display of chat messages -->
+          <div class="chat-box" id="chatLog"></div>
+
+          <!-- Message input area and send button -->
+          <div style="margin-top: 15px">
+            <!-- Dropdown to select message recipient -->
+            <select id="recipient">
+              <option value="" disabled selected>Choose user to message</option>
+            </select>
+            <br /><br />
+            <!-- Text area for message input -->
+            <textarea
+              id="messageInput"
+              rows="2"
+              cols="40"
+              placeholder="Type your message..."
+            ></textarea>
+            <br />
+            <!-- Button to send an encrypted message -->
+            <button onclick="sendEncryptedMessage()">Send</button>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- External libraries for cryptography and elliptic curve operations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/elliptic/6.5.4/elliptic.min.js"></script>
+
+    <!-- Custom client logic and test runner scripts -->
+    <script src="client.js"></script>
+    <script src="test.js"></script>
+  </body>
+</html>
