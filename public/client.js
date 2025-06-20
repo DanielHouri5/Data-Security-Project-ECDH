@@ -19,6 +19,30 @@ const userSelect = document.getElementById('recipient');
 const chatLog = document.getElementById('chatLog');
 const messageInput = document.getElementById('messageInput');
 
+/**
+ * Generates a new elliptic curve key pair using the secp256k1 curve.
+ * The key pair contains a private key and the corresponding public key.
+ * @returns {Object} - The generated key pair object.
+ */
+function generateKey() {
+  // Use the elliptic library's ec instance to generate a new random key pair
+  return ec.genKeyPair();
+}
+
+/**
+ * Computes the shared secret between two key pairs using ECDH.
+ * Given our private key and the other party's public key,
+ * derives the shared secret point and returns it as a hex string.
+ * @param {Object} myKey - Our key pair (with private key).
+ * @param {Object} otherKey - The other party's public key object.
+ * @returns {string} - The shared secret as a hexadecimal string.
+ */
+function computeSharedSecret(myKey, otherKey) {
+  // Derive the shared secret by multiplying our private key with the other party's public key point
+  // Returns a big number (BN), convert it to hex string for use as a key
+  return myKey.derive(otherKey).toString(16);
+}
+
 // ===== User Login =====
 function login() {
   const input = document.getElementById('username');
@@ -28,8 +52,7 @@ function login() {
     return;
   }
 
-  // Generate our key pair
-  keyPair = ec.genKeyPair();
+  keyPair = generateKey();
   publicKeyHex = keyPair.getPublic('hex');
 
   // Send registration message to the server
@@ -125,7 +148,7 @@ socket.addEventListener('message', (event) => {
         userPublicKeys[name] = pub;
 
         // Compute and store shared secret
-        const sharedSecret = keyPair.derive(pub).toString(16);
+        const sharedSecret = computeSharedSecret(keyPair, pub);
         sharedSecrets[name] = sharedSecret;
 
         const opt = document.createElement('option');

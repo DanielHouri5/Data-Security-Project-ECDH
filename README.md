@@ -28,9 +28,10 @@ This project implements a secure network chat using Elliptic Curve Diffie-Hellma
 
 ### 2. Open the Client
 
-- Open the `index.html` file in a modern web browser (Chrome, Firefox, Edge).
+- Click the http://localhost:3000 link displayed in your terminal to open the chat application in your default web browser.
+- Open as many browser tabs or windows as the number of users you want to simulate.
 - Enter your username and join the chat.
-- Use the test buttons to run ECDH key exchange tests, encryption tests, performance benchmarks, and integration tests.
+- Use the test buttons to run ECDH key exchange tests, encryption tests and performance benchmarks.
 
 ---
 
@@ -62,6 +63,5 @@ This project implements a secure network chat using Elliptic Curve Diffie-Hellma
 ## Notes
 
 - Make sure the server is running before opening the client, otherwise the client will not be able to connect.
-- For local testing, all components run on `localhost`, but the system can be adapted for deployment with proper WebSocket endpoint configuration.
 
 ---
